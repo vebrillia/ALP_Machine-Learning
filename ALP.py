@@ -72,6 +72,10 @@ from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
 
+from imblearn.over_sampling import RandomOverSampler
+
+oversampler = RandomOverSampler(sampling_strategy='auto', random_state=0)
+X_train_resampled, y_train_resampled = oversampler.fit_resample(X_train, y_train)
 from sklearn.preprocessing import StandardScaler
 
 sc = StandardScaler()
